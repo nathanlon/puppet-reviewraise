@@ -1,4 +1,4 @@
-class prayerlabs::params {
+class rraise::params {
 
     $home = '/home/vagrant'
     $owner = 'vagrant'
