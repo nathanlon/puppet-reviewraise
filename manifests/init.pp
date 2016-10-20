@@ -277,7 +277,7 @@ class rraise() inherits rraise::params {
         ],
         notify => Service['httpd']
     }
-    php::module::ini { 'xmlreader': pkgname => 'xml' }
+    #php::module::ini { 'xmlreader': pkgname => 'xml' }
 
     class { 'apache_vhost_config': }
 
