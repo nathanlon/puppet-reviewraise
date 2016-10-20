@@ -1,8 +1,8 @@
-node 'localhost.lan', 'localhost', 'stage', 'production', 'ci', 'lepton.co' {
+node 'localhost.lan', 'localhost', 'stage', 'production', 'ci', 'rraise.co' {
     include repo
     include java
     include ant
-    include prayerlabs
+    include rraise
 }
 
 if versioncmp($::puppetversion,'3.6.1') >= 0 {
