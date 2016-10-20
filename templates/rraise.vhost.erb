@@ -1,0 +1,28 @@
+<VirtualHost *:80>
+    DocumentRoot "<%= @docroot %>/reviewraise/rraise/web"
+    ServerName <%= @domain %>
+
+    php_flag short_open_tag Off
+
+    <Directory "<%= @docroot %>/reviewraise/lepton/web">
+        AuthType None
+        Satisfy Any
+        Require all granted
+        AllowOverride All
+    </Directory>
+
+    SetOutputFilter DEFLATE
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip
+
+    #TURN ON WHEN WE HAVE CACHE BUSTERS ON EVERYTHING
+    #ExpiresActive On
+    #ExpiresByType text/css  "access plus 3 months"
+    #ExpiresByType text/javascript "access plus 3 months"
+    #ExpiresByType application/javascript "access plus 3 months"
+    #ExpiresByType image/gif "access plus 1 day"
+    #ExpiresByType image/png "access plus 1 day"
+    #ExpiresByType image/jpg "access plus 1 day"
+    #ExpiresByType image/jpeg "access plus 1 day"
+
+    AddType text/cache-manifest .appcache
+</VirtualHost>
